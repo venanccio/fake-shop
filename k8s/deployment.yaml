@@ -53,7 +53,7 @@ spec:
     spec:
       containers:
         - name: fakeshop
-          image: fabricioveronez/fake-shop-desafio:v1
+          image: venanccio/fake-shop-desafio:v1
           command: ["sh", "-c", "flask db upgrade && gunicorn --bind 0.0.0.0:5000 index:app"]
           ports:
             - containerPort: 5000
