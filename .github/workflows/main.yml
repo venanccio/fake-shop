@@ -22,6 +22,6 @@ jobs:
           context: ./src
           push: true
           file: ./src/Dockerfile
-          tags: fabricioveronez/fake-shop-desafio:v2
+          tags: fabricioveronez/fake-shop-desafio:v${{ github.run_number }}
 
       
