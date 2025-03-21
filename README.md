@@ -1,22 +1,33 @@
-# Fake Shop no Kubernetes
+# Fake Shop - CI/CD com GitHub Actions
 
-## Desafio concluído
+Este repositório contém a aplicação Fake Shop com pipeline CI/CD automatizada usando GitHub Actions para deploy no Kubernetes.
 
-Aplicação rodando no cluster Kubernetes da Digital Ocean:
+## Pipeline CI/CD
 
-![desafio2](https://github.com/user-attachments/assets/7d6523ec-2871-4b98-a912-9576ddccd9a3)
+A pipeline automatiza:
+- Build da imagem Docker
+- Push para o Docker Hub
+- Deploy no cluster Kubernetes
 
-![k8s](https://github.com/user-attachments/assets/5cacc3ac-5289-4c37-a816-133d179b0020)
+## Pré-requisitos
 
-## Detalhes da implementação
+- Conta no GitHub
+- Conta no Docker Hub
+- Cluster Kubernetes (ex: Digital Ocean Kubernetes)
 
-## Variável de Ambiente
-DB_HOST	=> Host do banco de dados PostgreSQL.
+## Configuração
 
-DB_USER => Nome do usuário do banco de dados PostgreSQL.
+1. Fork este repositório
+2. Adicione os seguintes secrets no seu repositório:
+   - `DOCKERHUB_USERNAME`: Seu nome de usuário do Docker Hub
+   - `DOCKERHUB_TOKEN`: Token de acesso ao Docker Hub
+   - `KUBE_CONFIG`: Arquivo kubeconfig
+        cat ~/.kube/config
+3. A pipeline é executada automaticamente quando:
+- Um push é feito para a branch main
+- Um pull request é aberto para a branch main
 
-DB_PASSWORD	=> Senha do usuário do banco de dados PostgreSQL.
+## Estrutura do Projeto
 
-DB_NAME	=>	Nome do banco de dados PostgreSQL.
-
-DB_PORT	=>	Porta de conexão com o banco de dados PostgreSQL.
+- `.github/workflows/`: Contém o arquivo de configuração da pipeline CI/CD
+- `k8s/`: Contém os manifestos Kubernetes para o deploy da aplicação
